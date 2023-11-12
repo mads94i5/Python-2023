@@ -9,6 +9,16 @@ So "library code" and "user code"
 """
 
 class Number:
-
     def __init__(self, value):
-            self.x = value
+        self.x = value
+
+    @property
+    def x(self):
+        return self._x
+    
+    @x.setter
+    def x(self, value):
+        if 0 <= value <= 100:
+            self._x = value
+        else:
+            raise ValueError('Number should be between 0 and 100')
